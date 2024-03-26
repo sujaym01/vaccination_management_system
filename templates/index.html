@@ -1,0 +1,181 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head_title %}
+  home_page/
+{% endblock %}
+{% block content %}
+  <h2 style="text-align: center; color: #29abe3;"> Welcome To Vaccine Management (COVID-19)</h2>
+  <marquee>
+    <ul class="inline-flex text-green-600 hover:text-red-600">
+      <li>
+        &nbsp;&nbsp;&nbsp;&nbsp;■&nbsp;
+        <a href="">Online training for doctors on coronavirus (Covid-19) conducted by the Department of Health.</a>
+      </li>
+      <li>
+        &nbsp;&nbsp;&nbsp;&nbsp;■&nbsp;
+        <a href=" {% url 'info_covid' %} ">Data flow of 2019 novel coronavirus detection and measurement.</a>
+      </li>
+    </ul>
+  </marquee>
+  <marquee direction="right" behavior="alternate" style="border:BLACK 2px SOLID" class="italic text-red-700">LET'S GET VACCINATED STOP COVID-19</marquee>
+
+  <!-- Introduction start -->
+  <div class="flex flex-wrap px-2 py-3 mx-5 items-center">
+    <div class="w-full md:w-1/2">
+      <h1 class="text-3xl mb-2"><b class="uppercase"><i class="fa-solid fa-handshake fa-lg"></i> welcome to our website.</b></h1>
+      <p class="first:uppercase first:tracking-widest mb-4 mt-5">
+        <span class="text-7xl font-bold text-green-500 mr-3 float-left">W</span>e extend a warm and hearty welcome to you! At Covid-19, we are on a mission to provide you with valuable information and resources that empower you on your journey to health and wellness. Explore our platform to discover insights on vaccinations, stay informed about health practices, and join our community in fostering a safer and healthier world. Your well-being is our priority, and we invite you to navigate through our content, participate in discussions, and embark on a path to a healthier future together. Thank you for choosing Covid-19. Let's build a healthier world, one step at a time!
+      </p>
+      <button class="hover:bg-blue-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Get Started</button>
+    </div>
+
+    <div class="w-full md:w-1/2">
+      <img class="w-full p-5 mx-5" src="{% static 'vaccine_covid.jpg' %}" alt="image" />
+    </div>
+  </div>
+  <!-- Introduction end -->
+
+  <!-- banner section start -->
+  <div class="swiffy-slider">
+    <ul class="slider-container">
+      <li>
+        <img src=" {% static 'slide-1.png' %} " style="max-width: 100%;height: auto;" />
+      </li>
+      <li>
+        <img src=" {% static 'slide-2.png' %} " style="max-width: 100%;height: auto;" />
+      </li>
+      <li>
+        <img src=" {% static 'slide-3.jpg' %} " style="max-width: 100%;height: auto;" />
+      </li>
+    </ul>
+
+    <button type="button" class="slider-nav"></button>
+    <button type="button" class="slider-nav slider-nav-next"></button>
+
+    <div class="slider-indicators">
+      <button class="active"></button>
+      <button class="active"></button>
+      <button class="active"></button>
+    </div>
+  </div>
+  <!-- banner section end -->
+
+  <!-- All campaign section -->
+
+  
+  <div class="container mx-auto p-4 my-10">
+    {% include 'campaign/all_campaign_list.html' %}
+  </div>
+
+
+  <!-- accordion start -->
+<div class=" container my-10">
+  <div class="accordion" id="accordionPanelsStayOpenExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+          Coronavirus disease (COVID-19)
+        </button>
+      </h2>
+      <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+        <div class="accordion-body">
+          <h3 class="fw-bold">Key facts &rarr;</h3>
+          <div class="my-1">
+            <ul>
+              <li>
+                <strong>&diams; COVID-19 is a disease caused by a virus. The most common symptoms are fever, chills, and sore throat, but there are a range of others.</strong>
+              </li>
+              <li>
+                <strong>&diams; Most people make a full recovery without needing hospital treatment. People with severe symptoms should seek medical care as soon as possible.</strong>
+              </li>
+              <li>
+                <strong>&diams; Over 760 million cases and 6.9 million deaths have been recorded worldwide since December 2019, but the actual number is thought to be higher.</strong>
+              </li>
+              <li>
+                <strong>&diams; Over 13 billion vaccine doses have been administered as of June 2023.</strong>
+              </li>
+            </ul>
+          </div>
+          <br><hr><br>
+    
+          <h3 class="fw-bold">Overview &rarr;</h3>
+          <div class="my-1">
+            <p><strong>COVID-19 is the disease caused by the SARS-CoV-2 coronavirus.</strong> It usually spreads between people in close contact. <br>COVID-19 vaccines provide strong protection against severe illness and death. Although a person can still get COVID-19 after vaccination, they are more likely to have mild or no symptoms. <br>Anyone can get sick with COVID-19 and become seriously ill or die, but most people will recover without treatment. <br>People over age 60 and those with existing medical conditions have a higher risk of getting seriously ill. These conditions include high blood pressure, diabetes, obesity, immunosuppression including HIV, cancer and pregnancy. Unvaccinated people also have a higher risk of severe symptoms. </p>
+          </div>
+          <br><hr> <br>
+          <div>
+            <h3 class="fw-bold">Symptoms &rarr;</h3>
+            <p>People may experience different symptoms from COVID-19. Symptoms usually begin 5–6 days after exposure and last 1–14 days.</p>
+            <h6 class="my-1 fw-medium">The most common symptoms are:</h6>
+            <li>fever </li> 
+            <li> chills</li>
+            <li>sore throat.</li>
+
+            <h6 class="my-1 fw-medium">Less common symptoms are:</h6>
+            <li>muscle aches and heavy arms or legs</li>
+            <li>severe fatigue or tiredness</li>
+            <li>runny or blocked nose, or sneezing</li>
+            <li>headache</li>
+            <li>sore eyes</li>
+            <li>dizziness</li>
+            <li>new and persistent cough</li>
+            <li>tight chest or chest pain</li>
+            <li>shortness of breath</li>
+            <li>hoarse voice</li>
+            <li>numbness or tingling</li>
+            <li>appetite loss, nausea, vomiting, abdominal pain or diarrhoea</li>
+            <li>loss or change of sense of taste or smell</li>
+            <li>difficulty sleeping.</li>
+          </div>
+
+          <div class="my-1">
+            <p>People who have pre-existing health problems are at higher risk when they have COVID-19; they should seek medical help early if worried about their condition. These include people taking immunosuppressive medication; those with chronic heart, lung, liver or rheumatological problems; those with HIV, diabetes, cancer. obesity or dementia.</p>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+          Treatment
+        </button>
+      </h2>
+      <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+        <div class="accordion-body">
+          <div>
+            <p><strong>Most people will recover without needing treatment in a hospital.</strong></p>
+          <p>For those who need it, doctors will suggest treatments for COVID-19 based on the severity of the disease and the risk of it getting worse. They will consider the person’s age and if they have other health problems.</p>
+          
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+          Prevention
+        </button>
+      </h2>
+      <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+        <div class="accordion-body">
+          <h6 class="my-1 fw-medium">To prevent the spread of COVID-19:</h6>
+
+          <li>avoid crowds and keep a safe distance from others, even if they don’t appear to be sick;</li>
+          <li>wear a properly fitted mask if you feel sick, have been close to people who are sick, if you are at high-risk, or in crowded or poorly ventilated areas;</li>
+          <li> clean your hands frequently with alcohol-based hand rub or soap and water;</li>
+          <li> cover your mouth and nose with a bent elbow or tissue when you cough or sneeze;</li>
+          <li>dispose of used tissues right away and clean your hands; and </li>
+          <li>if you develop symptoms or test positive for COVID-19, self-isolate until you recover.</li>
+          <p class="my-2">People should get vaccinated as soon as it’s their turn. They should follow local guidance on vaccination and ways to protect themselves against COVID-19.</p>
+          <p>COVID-19 vaccines provide strong protection against serious illness, hospitalization and death.</p>
+          <p class="my-2">Vaccination against COVID-19 is based on priority groups such as people aged 60 years and over, and those with underlying medical problems such as high blood pressure, diabetes, chronic health problems, immunosuppression (including HIV), obesity, cancer, pregnant persons, and unvaccinated people. In March 2023, WHO updated its recommendations on primary series vaccination (two doses of any vaccine) as well as the need for booster doses. These recommendations are time-limited and can change at any time depending on how the SARS-CoV-2 virus is circulating in your area or country. It is important to stay up to date with local guidelines and recommendations provided by your local health authority.</p>
+          <p class="my-2">Since its introduction, COVID-19 vaccines have saved millions of lives across the world by providing protection against severe disease, hospitalization, and death. Even though vaccines protect against severe disease and death, it is still possible to spread SARS-CoV-2 to others after being vaccinated.</p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- accordion end -->
+{% endblock %}

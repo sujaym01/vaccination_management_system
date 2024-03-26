@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head_title %}
+  about_us/
+{% endblock %}
+{% block content %}
+  <div class="text-center mt-5">
+    <h1 class="text-3xl font-bold mb-2">WHO WE ARE &amp; WHAT WE DO</h1>
+    <hr /><br /><hr />
+  </div>
+  <div class="flex px-2 py-3 m-5 items-center overflow-hidden mb-20">
+    <div class="w-full md:w-1/2">
+      <!-- <img class="h-auto max-w-xl rounded-lg shadow-xl" src="{% static 'about-4-transformed.jpeg' %}" alt="image" /> -->
+      <img class="rounded-full w-96 h-96" src="{% static 'covid-19.png' %}" alt="image" />
+      <img class="h-auto max-w-md" src="{% static 'about-5-transformed.jpeg' %}" alt="image" />
+    </div>
+    <div class="w-full md:w-1/2">
+      <h1 class="my-2 text-3xl font-semibold">Vaccine Management (COVID-19)</h1>
+      <blockquote class="p-4 my-4 border-s-4 border-gray-300 bg-gray-50 dark:border-gray-500 dark:bg-gray-800">
+        <p class="text-lg italic font-medium leading-relaxed text-gray-900 dark:text-white">"Our commitment lies in furnishing you with thorough and trustworthy insights into vaccinations, accompanying you on the path towards improved well-being. Our goal is to equip individuals and communities with understanding about immunization, fostering a safer and healthier tomorrow for everyone."</p>
+      </blockquote>
+
+      <blockquote class="text-lg italic font-semibold text-gray-900 dark:text-white">
+        <svg class="w-8 h-8 text-gray-400 dark:text-gray-600 mb-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 14">
+          <path d="M6 0H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3H2a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Zm10 0h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3h-1a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Z" />
+        </svg>
+        <p>"Delve into our wealth of resources, remain enlightened, and unite with us in the collaborative endeavor to champion wellness through vaccination. Let us together forge a barrier of defense for a more robust and healthier global community."</p>
+      </blockquote>
+
+      <a href="{% url 'home' %}" class="inline-block font-medium text-sm px-4 py-2 mb-2 leading-none bg-red-500 rounded text-blue-900 border-white hover:border-transparent hover:text-white hover:bg-red-700 mt-4 lg:mt-0">Take Our Service &rarr;</a>
+
+      <amp-accordion id="my-accordion" disable-session-states>
+        <section>
+          <h2 class="text-center italic text-indigo-600 py-2">Translate This To Bangla</h2>
+          <p>আমাদের প্রতিশ্রুতি টিকা সম্পর্কে পুঙ্খানুপুঙ্খ এবং বিশ্বস্ত অন্তর্দৃষ্টি দিয়ে আপনাকে সুসজ্জিত করা, উন্নত সুস্থতার পথে আপনাকে সঙ্গী করা। আমাদের লক্ষ্য হল ব্যক্তি এবং সম্প্রদায়কে টিকাদান সম্পর্কে বোঝার সাথে সজ্জিত করা, প্রত্যেকের জন্য একটি নিরাপদ এবং স্বাস্থ্যকর আগামীকাল গড়ে তোলা। আমাদের সম্পদের সম্পদের সন্ধান করুন, আলোকিত থাকুন এবং টিকাদানের মাধ্যমে সুস্থতা অর্জনের সহযোগী প্রচেষ্টায় আমাদের সাথে একত্রিত হন। আসুন আমরা একসাথে আরও শক্তিশালী এবং স্বাস্থ্যকর বিশ্ব সম্প্রদায়ের জন্য প্রতিরক্ষার একটি বাধা তৈরি করি।</p>
+        </section>
+        <section>
+          <h3 class="text-center text-success text-bold py-2">Read More About Us</h3>
+          <blockquote class="p-4 my-4 border-s-4 border-gray-300 bg-gray-50 dark:border-gray-500 dark:bg-gray-800">
+            <p class="text-lg italic font-medium leading-relaxed text-gray-900 dark:text-white">"We work for the patients to find the right doctor and the right hospital services. It tries to build a platform for all – the patients, doctors, hospital owners, healthcare professionals and other health service providers to meet the need of good health for all. A patient can get all types of hospital services, even ambulance, online – that means all types medical services are a click away."</p>
+            <a href="{% url 'home' %}" class="inline-block font-medium text-sm px-4 py-2 mb-2 leading-none bg-red-600 rounded text-purple-600 border-white hover:border-transparent hover:text-white hover:bg-red-500 mt-4 lg:mt-0">Find Your Doctor &rarr;</a>
+          </blockquote>
+        </section>
+        <section expanded>
+          <h2 class="text-center text-dark text-bold">50% Discount All Test Bellow</h2>
+          <amp-img src=" {% static 'pathology-test.jpg' %} " width="527" height="256"></amp-img>
+        </section>
+      </amp-accordion>
+    </div>
+  </div>
+{% endblock %}
+
+
+
+
+
+
+{% comment %} {% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  <div class="text-center mt-5">
+    <h1 class="text-3xl font-bold mb-2">WHO WE ARE &amp; WHAT WE DO</h1>
+    <hr /><br /><hr />
+  </div>
+  <div class="flex flex-col md:flex-row my-10">
+    <div class="px-4 justify-center items-center">
+      <!-- <img class="h-auto max-w-xl rounded-lg shadow-xl" src="{% static 'about-4-transformed.jpeg' %}" alt="image" /> -->
+      <img class="rounded-full w-96 h-96" src="{% static 'covid-19.png' %}" alt="image" />
+      <img class="h-auto max-w-lg" src="{% static 'about-5-transformed.jpeg' %}" alt="image" />
+    </div>
+    <div class="px-4 justify-center items-center">
+      <h1 class="my-2 text-3xl font-semibold">Vaccine Management (COVID-19)</h1>
+      <blockquote class="p-4 my-4 border-s-4 border-gray-300 bg-gray-50 dark:border-gray-500 dark:bg-gray-800">
+        <p class="text-lg italic font-medium leading-relaxed text-gray-900 dark:text-white">"Our commitment lies in furnishing you with thorough and trustworthy insights into vaccinations, accompanying you on the path towards improved well-being. Our goal is to equip individuals and communities with understanding about immunization, fostering a safer and healthier tomorrow for everyone."</p>
+      </blockquote>
+
+      <blockquote class="text-lg italic font-semibold text-gray-900 dark:text-white">
+        <svg class="w-8 h-8 text-gray-400 dark:text-gray-600 mb-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 14">
+          <path d="M6 0H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3H2a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Zm10 0h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3h-1a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Z" />
+        </svg>
+        <p>"Delve into our wealth of resources, remain enlightened, and unite with us in the collaborative endeavor to champion wellness through vaccination. Let us together forge a barrier of defense for a more robust and healthier global community."</p>
+      </blockquote>
+
+      <a href="{% url 'home' %}" class="inline-block font-medium text-sm px-4 py-2 mb-2 leading-none bg-red-500 rounded text-blue-900 border-white hover:border-transparent hover:text-white hover:bg-red-700 mt-4 lg:mt-0">Take Our Service &rarr;</a>
+
+      <amp-accordion id="my-accordion" disable-session-states>
+        <section>
+          <h2 class="text-center italic text-indigo-600 py-2">Translate This To Bangla</h2>
+          <p>আমাদের প্রতিশ্রুতি টিকা সম্পর্কে পুঙ্খানুপুঙ্খ এবং বিশ্বস্ত অন্তর্দৃষ্টি দিয়ে আপনাকে সুসজ্জিত করা, উন্নত সুস্থতার পথে আপনাকে সঙ্গী করা। আমাদের লক্ষ্য হল ব্যক্তি এবং সম্প্রদায়কে টিকাদান সম্পর্কে বোঝার সাথে সজ্জিত করা, প্রত্যেকের জন্য একটি নিরাপদ এবং স্বাস্থ্যকর আগামীকাল গড়ে তোলা। আমাদের সম্পদের সম্পদের সন্ধান করুন, আলোকিত থাকুন এবং টিকাদানের মাধ্যমে সুস্থতা অর্জনের সহযোগী প্রচেষ্টায় আমাদের সাথে একত্রিত হন। আসুন আমরা একসাথে আরও শক্তিশালী এবং স্বাস্থ্যকর বিশ্ব সম্প্রদায়ের জন্য প্রতিরক্ষার একটি বাধা তৈরি করি।</p>
+        </section>
+        <section>
+          <h3 class="text-center text-success text-bold py-2">Read More About Us</h3>
+          <blockquote class="p-4 my-4 border-s-4 border-gray-300 bg-gray-50 dark:border-gray-500 dark:bg-gray-800">
+            <p class="text-lg italic font-medium leading-relaxed text-gray-900 dark:text-white">"We work for the patients to find the right doctor and the right hospital services. It tries to build a platform for all – the patients, doctors, hospital owners, healthcare professionals and other health service providers to meet the need of good health for all. A patient can get all types of hospital services, even ambulance, online – that means all types medical services are a click away."</p>
+            <a href="{% url 'home' %}" class="inline-block font-medium text-sm px-4 py-2 mb-2 leading-none bg-red-600 rounded text-purple-600 border-white hover:border-transparent hover:text-white hover:bg-red-500 mt-4 lg:mt-0">Find Your Doctor &rarr;</a>
+          </blockquote>
+        </section>
+        <section expanded>
+          <h2 class="text-center text-dark text-bold">50% Discount All Test Bellow</h2>
+          <amp-img src=" {% static 'pathology-test.jpg' %} " width="560" height="256"></amp-img>
+        </section>
+      </amp-accordion>
+    </div>
+  </div>
+{% endblock %} {% endcomment %}
+
+{% comment %} {% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  <div class="text-center mt-5">
+    <h1 class="text-3xl font-bold mb-2">WHO WE ARE &amp; WHAT WE DO</h1>
+    <hr /><br /><hr />
+  </div>
+  <div class="flex flex-wrap px-3">
+    <div class="w-full md:w-1/2">
+      <img class="h-auto max-w-md border" src="{% static 'covid-19.png' %}" alt="image" />
+    </div>
+    <div class="w-full md:w-1/2">
+      <h1 class="text-3xl font-bold mb-2 text-pink-900">Vaccine Management (COVID-19)</h1>
+
+      <p class="mb-4 text-gray-700">Our commitment lies in furnishing you with thorough and trustworthy insights into vaccinations, accompanying you on the path towards improved well-being. Our goal is to equip individuals and communities with understanding about immunization, fostering a safer and healthier tomorrow for everyone. Delve into our wealth of resources, remain enlightened, and unite with us in the collaborative endeavor to champion wellness through vaccination. Let us together forge a barrier of defense for a more robust and healthier global community.</p>
+      <a href="{% url 'home' %}" class="inline-block font-medium text-sm px-4 py-2 mb-2 leading-none bg-red-500 rounded text-blue-900 border-white hover:border-transparent hover:text-white hover:bg-red-700 mt-4 lg:mt-0">Take Our Service &rarr;</a>
+      <div class="mb-4">
+        <amp-accordion id="my-accordion" disable-session-states>
+          <section>
+            <h2 class="text-center italic text-indigo-600">Translate This To Bangla</h2>
+            <p>আমাদের প্রতিশ্রুতি টিকা সম্পর্কে পুঙ্খানুপুঙ্খ এবং বিশ্বস্ত অন্তর্দৃষ্টি দিয়ে আপনাকে সুসজ্জিত করা, উন্নত সুস্থতার পথে আপনাকে সঙ্গী করা। আমাদের লক্ষ্য হল ব্যক্তি এবং সম্প্রদায়কে টিকাদান সম্পর্কে বোঝার সাথে সজ্জিত করা, প্রত্যেকের জন্য একটি নিরাপদ এবং স্বাস্থ্যকর আগামীকাল গড়ে তোলা। আমাদের সম্পদের সম্পদের সন্ধান করুন, আলোকিত থাকুন এবং টিকাদানের মাধ্যমে সুস্থতা অর্জনের সহযোগী প্রচেষ্টায় আমাদের সাথে একত্রিত হন। আসুন আমরা একসাথে আরও শক্তিশালী এবং স্বাস্থ্যকর বিশ্ব সম্প্রদায়ের জন্য প্রতিরক্ষার একটি বাধা তৈরি করি।</p>
+          </section>
+          <section>
+            <h2 class="text-right px-4">Section 2</h2>
+            <div>Content in section 2.</div>
+          </section>
+          <section expanded>
+            <h2 class="px-4">Section 3</h2>
+            <amp-img src="#" width="320" height="256"></amp-img>
+          </section>
+        </amp-accordion>
+      </div>
+    </div>
+  </div>
+{% endblock %} {% endcomment %}

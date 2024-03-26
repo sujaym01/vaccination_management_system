@@ -1,0 +1,103 @@
+{% load static %}
+<footer class="text-white py-5">
+  <div class="container mx-auto flex flex-wrap justify-between">
+    <div class="w-full md:w-1/4 mb-4 pl-24 md:mb-0">
+      <h5 class="text-lg font-semibold">Follow Us</h5>
+      <ul>
+        <li>
+          <a href="#"><i class="fa-brands fa-facebook fa-lg"></i></a>
+        </li>
+        <li>
+          <a href="#"><i class="fa-brands fa-youtube fa-lg"></i></a>
+        </li>
+        <li>
+          <a href="#"><i class="fa-brands fa-square-instagram fa-lg"></i></a>
+        </li>
+        <li>
+          <a href="#"><i class="fa-brands fa-linkedin fa-lg"></i></a>
+        </li>
+      </ul>
+      <!--  <div class="flex space-x-2 mt-5">
+                <img class='w-6 h-6 rounded' src="{% static 'facebook.jpeg' %}" alt="Facebook">
+                <img class='w-6 h-6 rounded' src="{% static 'linkedIn-logo.png' %}" alt="LinkedIn">
+                <img class='w-6 h-6 rounded' src="{% static 'youtube1.png' %}" alt="YouTube">
+                <img class='w-6 h-6 rounded' src="{% static 'instagram2.avif' %}" alt="instagram">
+            </div>  -->
+    </div>
+
+    <div class="w-full md:w-1/4 mb-4 md:mb-0">
+      <h5 class="text-lg font-semibold">COMPANY</h5>
+      <ul>
+        <li>
+          <a href=" {% url 'about_us' %} ">About Us</a>
+        </li>
+        <li>
+          <a href=" {% url 'contact_us' %} ">Contact Us</a>
+        </li>
+        <li>
+          <a href="#">Blogs</a>
+        </li>
+        <li>
+          <a href="#">FAQs</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="w-full md:w-1/4 mb-4 md:mb-0">
+      <h5 class="text-lg font-semibold">Services</h5>
+      <ul>
+        <li>
+          <a href="#"><p>Specialized Doctor Appointment</p></a>
+        </li>
+        <li>
+          <a href="#"><p>Pathological Lab Test Support</p></a>
+        </li>
+        <li>
+          <a href="#"><p>Hospital Admission Support</p></a>
+        </li>
+        <li>
+          <a href="#"><p>Emergency Ambulance Service</p></a>
+        </li>
+        <li>
+          <a href="#"><p>Medical Service Assistance in India</p></a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="w-full md:w-1/4 mb-4 md:mb-0">
+      <h5 class="text-lg font-semibold">Emergency Numbers</h5>
+      <ul>
+        <li>
+          <a href="https://en.wikipedia.org/wiki/Khulna_Medical_College">
+            <p class="underline hover:text-red-700">
+              Khulna Medical College Hospital <br />
+              041-761535, &nbsp; 01716-280708
+            </p>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <p>
+              General Hospital, Khulna <br />
+              041-721128, &nbsp; 01730-324797
+            </p>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <p>
+              Abu Naser Specialised Hospital, Khulna <br />
+              041-760390, &nbsp; 01716-169834
+            </p>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="w-4/4 mx-auto my-4 border-t" />
+
+  <div class="text-center">
+    <small class="text-md text-red-700 font-bold mb-2">Copyright &copy;{% now 'Y' %}Covid-19 All rights reserved.</small>
+  </div>
+</footer>

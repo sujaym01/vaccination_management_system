@@ -1,0 +1,23 @@
+{% load crispy_forms_tags %}
+<div class="w-full flex pb-12 justify-center bg-green-100">
+  {% if request.user.is_authenticated %}
+    {% if can_leave_review %}
+      <div class="bg-green-200 w-5/12 px-5 rounded-lg">
+        <form method="post">
+          <h1 class="text-center text-white text-4xl my-2"><i class="fa-solid fa-comment-medical"></i> Add Comment...</h1>
+          {% csrf_token %}
+          {{ comment_form|crispy }}
+          {% comment %} <div class="border rounded focus:border-black">{{ comment_form|crispy }}</div>
+          <input class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-10 mb-4" type="submit" value="Add Comment" /> {% endcomment %}
+          <div class="flex items-center justify-center w-full mb-2">
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-1/2 m-auto" type="submit"><i class="fa-solid fa-comment-medical"></i> Add Comment</button>
+          </div>
+        </form>
+      </div>
+    {% else %}
+      <p class="text-2xl text-bold mt-3">You need to book a service for this campaign to leave a review.</p>
+    {% endif %}
+  {% else %}
+    <p class="text-2xl text-bold mt-3">Login and book a service for this campaign to leave a review.</p>
+  {% endif %}
+</div>

@@ -1,0 +1,87 @@
+{% extends 'base.html' %} {% load static %}
+{% block head_title %}
+  contact_us/
+{% endblock %}
+{% block content %}
+  {% if form.non_field_errors %}
+    {% for error in form.non_field_errors %}
+      <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mt-2" role="alert">
+        <p class="font-bold">Error!</p>
+        <p class="block sm:inline">{{ error }}</p>
+      </div>
+    {% endfor %}
+  {% endif %}
+  <div class="grid grid-cols-2 gap-4">
+    <div class="px-3 py-4 rounded-xl my-6">
+      <img src=" {% static 'about-1.jpg' %} " alt="img" />
+      <h4 class="font-bold text-xl mb-2 italic">Our Address :</h4>
+      <p class="text-base text-2xl">
+        <span><i class="fa-solid fa-location-dot"></i> 37, Shamsur Rahman Road,</span><br /> Khulna-9100 <br />
+        <i class="fa-solid fa-phone-flip"></i> Phone: <span>+880 1918 931516,</span> <br /> <i class="fa-solid fa-phone-flip"></i> +880 1518 942345 <br />
+        <i class="fa-regular fa-envelope"></i> Email: <a class="underline text-purple-500" href="mailto:sujay.m6160@gmail.com">sujay.m6160@gmail.com</a>
+      </p>
+    </div>
+    <div class="px-2 rounded-xl my-6">
+      <h1 class="font-bold text-3xl text-center italic">Contact Us</h1>
+      <div class="w-full mt-5">
+        <form method="post" enctype="multipart/form-data" class="bg-gray-700 shadow-md rounded px-8 pt-6 pb-8 mb-4">
+          {% csrf_token %} {% for hidden_field in form.hidden_fields %}
+            {{ hidden_field.errors }} {{ hidden_field }}
+          {% endfor %}
+
+          <div class="flex flex-wrap -mx-3 mb-6">
+            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+              <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="{{ form.name.id_for_label }}">{{ form.name.label }}</label> {{ form.name }} {% if form.name.errors %}
+                {% for error in form.name.errors %}
+                  <p class="text-red-600 text-sm italic pb-2">{{ error }}</p>
+                {% endfor %}
+              {% endif %}
+            </div>
+            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+              <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="{{ form.email.id_for_label }}">{{ form.email.label }}</label> {{ form.email }} {% if form.email.errors %}
+                {% for error in form.email.errors %}
+                  <p class="text-red-600 text-sm italic pb-2">{{ error }}</p>
+                {% endfor %}
+              {% endif %}
+            </div>
+          </div>
+
+          <div class="flex flex-wrap -mx-3 mb-6">
+            <div class="w-full md:w-2/2 px-3 mb-6 md:mb-0">
+              <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="{{ form.phone.id_for_label }}">{{ form.phone.label }}</label> {{ form.phone }} {% if form.phone.errors %}
+                {% for error in form.phone.errors %}
+                  <p class="text-red-600 text-sm italic pb-2">{{ error }}</p>
+                {% endfor %}
+              {% endif %}
+            </div>
+
+            <div class="w-full md:w-2/2 px-3 mb-6 md:mb-0">
+              <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="{{ form.address.id_for_label }}">{{ form.address.label }}</label> {{ form.address }} {% if form.address.errors %}
+                {% for error in form.address.errors %}
+                  <p class="text-red-600 text-sm italic pb-2">{{ error }}</p>
+                {% endfor %}
+              {% endif %}
+            </div>
+          </div>
+
+          <div class="flex flex-wrap -mx-3 mb-6">
+            <div class="w-full md:w-2/2 px-3 mb-6 md:mb-0">
+              <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="{{ form.message.id_for_label }}">{{ form.message.label }}</label> {{ form.message }} {% if form.message.errors %}
+                {% for error in form.message.errors %}
+                  <p class="text-red-600 text-sm italic pb-2">{{ error }}</p>
+                {% endfor %}
+              {% endif %}
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between">
+            <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full m-auto" type="submit">Submit</button>
+          </div>
+          <p class="my-2 text-center">
+            <span class="text-white italic">Already a member?</span> <a style="color: aqua;" href="{% url 'login' %}">Log In</a>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

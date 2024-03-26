@@ -1,0 +1,76 @@
+{% extends 'base.html' %} {% load static %}
+{% block head_title %}
+  Covid-19
+{% endblock %}
+{% block content %}
+  {% if form.non_field_errors %}
+    <br />{% for error in form.non_field_errors %}
+      <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mt-2" role="alert">
+        <p class="font-bold">Error!</p>
+        <p class="block sm:inline">{{ error }}</p>
+      </div>
+    {% endfor %}
+  {% endif %}
+
+  <div class="px-3 py-4 my-5 text-white">
+    <h1 class="font-bold text-3xl text-center mt-5 mb-5 text-black">Update Vaccine</h1>
+    <div class="w-full">
+      <form method="post" class="shadow-md rounded px-8 pt-6 pb-8 mb-4 bg-blue-600">
+        {% csrf_token %} {% for hidden_field in form.hidden_fields %}
+          <br />
+          {{ hidden_field.errors }} {{ hidden_field }}
+        {% endfor %}
+
+        <div class="flex flex-wrap -mx-3 mb-6">
+          <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+            <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="{{ form.vaccine_name.id_for_label }}">{{ form.vaccine_name.label }}</label>
+            {{ form.vaccine_name }} {% if form.vaccine_name.errors %}
+              <br />
+              {% for error in form.vaccine_name.errors %}
+                <p class="text-red-600 text-sm italic pb-2">{{ error }}</p>
+              {% endfor %}
+            {% endif %}
+          </div>
+
+          <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+            <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="{{ form.dose_number.id_for_label }}">{{ form.dose_number.label }}</label>
+            {{ form.dose_number }} {% if form.dose_number.errors %}
+              <br />
+              {% for error in form.dose_number.errors %}
+                <p class="text-red-600 text-sm italic pb-2">{{ error }}</p>
+              {% endfor %}
+            {% endif %}
+          </div>
+        </div>
+        <div class="flex flex-wrap -mx-3 mb-6">
+          <div class="w-full md:w-2/2 px-3 mb-6 md:mb-0">
+            <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="{{ form.description.id_for_label }}">{{ form.description.label }}</label>
+            {{ form.description }} {% if form.description.errors %}
+              <br />
+              {% for error in form.description.errors %}
+                <p class="text-red-600 text-sm italic pb-2">{{ error }}</p>
+              {% endfor %}
+            {% endif %}
+          </div>
+
+          <div class="w-full md:w-2/2 px-3 mb-6 md:mb-0">
+            <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="{{ form.campaign.id_for_label }}">{{ form.campaign.label }}</label>
+            {{ form.campaign }} {% if form.campaign.errors %}
+              <br />{% for error in form.campaign.errors %}
+                <p class="text-red-600 text-sm italic pb-2">{{ error }}</p>
+              {% endfor %}
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between mb-10">
+          <button class="hover:bg-blue-900 bg-green-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-1/2 m-auto" type="submit">update Vaccine</button>
+        </div>
+
+        <div class="flex items-center justify-between mb-10">
+          <button class="bg-green-600 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-1/2 m-auto" type="submit"><a href="{% url 'vaccine_list' %}" class="">Cancel update</a></button>
+        </div>
+      </form>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head_title %}
+  covid-19
+{% endblock %}
+{% block content %}
+  <style>
+    #overflowTest {
+      background: #4caf50;
+      color: white;
+      padding: 15px;
+      width: 100%;
+      height: 200px;
+      overflow: scroll;
+      border: 1px solid #ccc;
+    }
+  </style>
+
+  <div class="container my-5">
+    <div class="flex justify-between items-center w-full">
+      <div class="m-auto px-4 mx-2 w-2/4">
+        {% if campaign.image %}
+          <img src="{{ campaign.image.url }}" alt="{{ campaign.campaign_name }}" class="h-auto max-w-md rounded-lg shadow-xl" />
+        {% else %}
+          <img style="height: 150px; object-fit: cover;" class="img-fluid" alt="No Image Available" />
+        {% endif %}
+      </div>
+      <div class="m-auto bg-indigo-300 px-4 rounded w-2/4">
+        <div class="text-center px-6 py-2">
+          <p class="font-bold text-xl">{{ campaign.campaign_name }}</p>
+          <p class="text-blue-500 font-bold">{{ campaign.place }}</p>
+        </div>
+        <div class="px-6 py-2">
+          <p>
+            <b>Start Date :</b> {{ campaign.start_date }}
+          </p>
+          <p>
+            <b>End Date :</b> {{ campaign.end_date }}
+          </p>
+          <p class="text-white text-base">{{ campaign.description|safe }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- vaccine under the campaign-->
+  {% if campaign.vaccine.all %}
+    <div class="container w-full">
+      <h3 class="text-3xl text-center text-red-900 my-10">Available Vaccine List for this Campaign</h3>
+      <hr /><br />
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-10 space-y-2 overflow-y-auto">
+        {% for vaccine in campaign.vaccine.all %}
+          <div class="shadow rounded shadow-lg bg-blue-50">
+            <div class="text-center">
+              <h3 class="text-lg font-bold mb-2">{{ vaccine.vaccine_name }}</h3>
+              <h5 class="text-lg font-bold mb-2">Dose No : {{ vaccine.dose_number }}</h5>
+              <p class="text-blue-500 font-bold mt-2">Vaccine ID : {{ vaccine.id }}</p>
+            </div>
+            
+            <div id="overflowTest">{{ vaccine.description|safe }}</div><br />
+            <div class="text-center mt-2 mb-3">
+              {% if user.is_authenticated %}
+                {% if request.user.account.account_type == 'Doctor' %}
+                  <button class="bg-green-600 text-white text-sm px-2 py-1 rounded hover:bg-black focus:outline-none focus:shadow-outline-yellow"><a href="{% url 'edit_vaccine' vaccine.id %}"><i class="fa-solid fa-pen-to-square"></i> Edit</a></button>
+                  <button class="bg-red-600 text-white text-sm px-2 py-1 rounded hover:bg-red-500 focus:outline-none focus:shadow-outline-red"><a href="{% url 'delete_vaccine' vaccine.id %}"> <i class="fa-solid fa-trash"></i> Delete</a></button>
+                {% else %}
+                  <button class="bg-purple-500 text-white text-sm px-4 py-2 rounded hover:bg-blue-600 focus:outline-none focus:shadow-outline-red"><a href="{% url 'vaccine_booking' campaign.id vaccine.id %}"><i class="fa-solid fa-cart-shopping"></i> Take Vaccine</a></button>
+                {% endif %}
+              {% else %}
+                <a href="{% url 'login' %}" class="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-300"><i class="fa-solid fa-cart-shopping"></i> Take Vaccine</a>
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  {% else %}
+    <div class="text-3xl text-center text-red-900 my-10">There are no vaccine in the Campaign.</div>
+  {% endif %}
+
+  
+  {% include 'campaign/add_comment_template.html' %}
+
+  {% include 'campaign/comment_section.html' %}
+{% endblock %}

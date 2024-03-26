@@ -1,0 +1,20 @@
+<div class="container p-16">
+  <div class="card">
+    {% if comments %}
+      <h5 class="p-3"><i class="fa-regular fa-comment"></i> Total Comments: {{ comments|length }}</h5>
+    {% endif %}
+
+    {% for comment in comments %}
+      <div class="card-body border m-2 px-10">
+        <h6 class="card-subtitle mb-2 text-muted"> <i class="fa-regular fa-calendar-plus"></i> {{ comment.created_on }}</h6>
+        <p>
+          <i class="fa-solid fa-circle-user"></i> <b>{{ comment.name }}</b>
+        </p>
+        <p>
+          <strong><i class="fa-regular fa-envelope"></i> Email:</strong> <a class="text-decoration-none" href="mailto:{{ comment.email }}">{{ comment.email }}</a>
+        </p>
+        <p><i class="fa-regular fa-comment"></i> {{ comment.body }}</p>
+      </div>
+    {% endfor %}
+  </div>
+</div>

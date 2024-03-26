@@ -1,0 +1,42 @@
+{% extends 'base.html' %} {% block content %}
+  {% load static %}
+
+  <style>
+    #overflowTest1 {
+      background: #4caf50;
+      color: white;
+      padding: 15px;
+      width: 100%;
+      height: 200px;
+      overflow: scroll;
+      border: 1px solid #ccc;
+    }
+  </style>
+  <div class="w-full">
+    <h2 class="text-2xl font-bold my-10 text-center"><span>&#8594;</span> You Add This Vaccine List <span>&#8594;</span></h2>
+    <hr />
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-10 space-y-2 overflow-y-auto">
+      {% for vaccine in vaccine_list %}
+        <div class="shadow rounded shadow-xl bg-blue-50">
+          <div class="text-center">
+            <h3 class="text-lg font-bold pt-2 mb-2">{{ vaccine.vaccine_name }}</h3>
+            <h5 class="text-lg font-bold mb-2">Dose No : {{ vaccine.dose_number }}</h5>
+            <p class="text-blue-500 font-bold mt-2">Vaccine ID : {{ vaccine.id }}</p>
+          </div>
+         
+          <div id="overflowTest1">{{ vaccine.description|safe }}</div><br />
+          <div class="text-center mt-4 mb-2">
+            {% if user.is_authenticated %}
+              {% if request.user.account.account_type == 'Doctor' %}
+                <button class="bg-green-600 text-white text-sm px-2 py-1 rounded hover:bg-black focus:outline-none focus:shadow-outline-yellow"><a href="{% url 'edit_vaccine' vaccine.id %}"><i class="fa-solid fa-pen-to-square"></i> Edit</a></button>
+                <button class="bg-red-600 text-white text-sm px-2 py-1 rounded hover:bg-red-500 focus:outline-none focus:shadow-outline-red"><a href="{% url 'delete_vaccine' vaccine.id %}"><i class="fa-solid fa-trash"></i> Delete</a></button>
+              {% endif %}
+            {% else %}
+              <a href="{% url 'login' %}" class="bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-300"><i class="fa-solid fa-cart-shopping"></i></i> Take Vaccine</a>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}

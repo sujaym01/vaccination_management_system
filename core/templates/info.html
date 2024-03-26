@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head_title %}
+  2019-Novel-Corona-Virus
+{% endblock %}
+{% block content %}
+  <div class="w-full align-middle my-10">
+    <h1 class="text-2xl text-center">Data flow of 2019 novel coronavirus detection and measurement.</h1>
+    <hr />
+    <img class="w-full px-8 mt-2" src=" {% static 'Flowchart-768x1152.jpg' %} " alt="img" />
+  </div>
+{% endblock %}

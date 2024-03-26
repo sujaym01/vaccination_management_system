@@ -1,0 +1,69 @@
+{% load static %}
+<nav class="flex items-center justify-between flex-wrap p-6 px-10 shadow-lg">
+  <div class="flex items-center flex-shrink-0 text-white mr-6">
+    <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
+      <img src="{% static 'logo.png' %}" class="h-10" alt="Logo" />
+      <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">COVID-19</span>
+    </a>
+  </div>
+  <div class="block lg:hidden">
+    <button class="flex items-center px-3 py-2 border rounded text-white border-white-400 hover:text-white hover:border-white">
+      <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        <title>Menu</title>
+        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+      </svg>
+    </button>
+  </div>
+  <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto px-10">
+    <div class="text-md">
+      <a href="{% url 'home' %}" class="mx-2 inline-block font-medium px-4 py-2 leading-none text-white hover:text-blue-500 lg:mt-0"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="{% url 'about_us' %}" class="mx-2 inline-block font-medium px-4 py-2 leading-none text-white hover:text-blue-500 lg:mt-0"><i class="fa-solid fa-address-card"></i> About Us</a>
+      <a href=" {% url 'contact_us' %} " class="mx-2 inline-block font-medium px-4 py-2 leading-none text-white hover:text-blue-500 lg:mt-0"><i class="fa-solid fa-address-book"></i> Contact Us</a>
+      <a href=" {% url 'all_campaign' %} " class="mx-2 inline-block font-medium px-4 py-2 leading-none text-white hover:text-blue-500 lg:mt-0"><i class="fa-brands fa-servicestack"></i> All Campaign</a>
+    </div>
+
+    {% if request.user.is_authenticated %}
+      <div class="text-md lg:flex-grow">
+        {% if request.user.account.account_type == 'Doctor' %}
+          <!-- Dropdown Menu -->
+          <div class="dropdown ml-4">
+            <button class="btn btn-danger dropdown-toggle mb-3 mb-md-2" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">Action</button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <li>
+                <a class="dropdown-item" href="{% url 'add_campaign' %}">Add Campaign</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="{% url 'add_vaccine' %}"> <i class="fa-solid fa-syringe"></i> Add Vaccine</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="{% url 'vaccine_list' %}"><i class="fa-solid fa-list-ul"></i> Vaccine List</a>
+              </li>
+              <li>
+                <hr class="dropdown-divider" />
+              </li>
+              {% comment %} <li>
+                <a class="dropdown-item" href="#">Separated link</a>
+              </li> {% endcomment %}
+            </ul>
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="flex w-auto">
+        <a href="{% url 'profile' %}" class="mx-2 inline-block font-medium text-sm px-4 py-2 leading-none bg-red-600 rounded text-blue-900 border-white hover:border-transparent hover:text-white lg:mt-0"><i class="fa-solid fa-user"></i> {{ user.username }}</a>
+        <form name="form" method="post" class="rounded" action="{% url 'logout' %}">
+          {% csrf_token %}
+          <button type="submit" class="bg-red-600 inline-block font-medium text-sm px-4 py-2 leading-none bg-red-600 rounded text-blue-900 border-white hover:border-transparent hover:text-white lg:mt-0"><i class="fa-solid fa-right-from-bracket"></i> logout</button>
+        </form>
+      </div>
+    {% else %}
+      <div class="text-md lg:flex-grow"></div>
+      <div>
+        <a href="{% url 'login' %}" class="mr-2 inline-block font-medium text-sm px-4 py-2 leading-none bg-red-600 rounded text-blue-900 border-white hover:border-transparent hover:text-white lg:mt-0"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+      </div>
+      <div>
+        <a href="{% url 'register' %}" class="inline-block font-medium text-sm px-4 py-2 leading-none bg-red-600 rounded text-blue-900 border-white hover:border-transparent hover:text-white hover:bg-red-700 lg:mt-0"><i class="fa-solid fa-user-plus"></i> Signup</a>
+      </div>
+    {% endif %}
+  </div>
+</nav>
