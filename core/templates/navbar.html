@@ -17,9 +17,12 @@
   <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
     <div class="text-md">
       <a href="{% url 'home' %}" class="mx-2 inline-block font-medium px-3 py-2 leading-none text-white hover:text-blue-500 lg:mt-0"><i class="fa-solid fa-house"></i> Home</a>
-      <a href="{% url 'about_us' %}" class="mx-2 inline-block font-medium px-3 py-2 leading-none text-white hover:text-blue-500 lg:mt-0"><i class="fa-solid fa-address-card"></i> About Us</a>
-      <a href=" {% url 'contact_us' %} " class="mx-2 inline-block font-medium px-3 py-2 leading-none text-white hover:text-blue-500 lg:mt-0"><i class="fa-solid fa-address-book"></i> Contact Us</a>
+
       <a href=" {% url 'all_campaign' %} " class="mx-2 inline-block font-medium px-3 py-2 leading-none text-white hover:text-blue-500 lg:mt-0"><i class="fa-brands fa-servicestack"></i> All Campaign</a>
+
+      <a href="{% url 'about_us' %}" class="mx-2 inline-block font-medium px-3 py-2 leading-none text-white hover:text-blue-500 lg:mt-0"><i class="fa-solid fa-address-card"></i> About Us</a>
+      
+      <a href=" {% url 'contact_us' %} " class="mx-2 inline-block font-medium px-3 py-2 leading-none text-white hover:text-blue-500 lg:mt-0"><i class="fa-solid fa-address-book"></i> Contact Us</a>
     </div>
 
     {% if request.user.is_authenticated %}

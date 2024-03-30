@@ -4,7 +4,7 @@
   home_page
 {% endblock %}
 {% block content %}
-  <h2 style="text-align: center; color: #29abe3;"> Welcome To Vaccine Management (COVID-19)</h2>
+  {% comment %} <h2 style="text-align: center; color: #29abe3;"> Welcome To Vaccine Management (COVID-19)</h2> {% endcomment %}
   <marquee>
     <ul class="inline-flex text-green-600 hover:text-red-600">
       <li>
@@ -22,7 +22,7 @@
   <!-- Introduction start -->
   <div class="flex flex-wrap px-2 py-3 mx-5 items-center">
     <div class="w-full md:w-1/2">
-      <h1 class="text-3xl mb-2"><b class="uppercase"><i class="fa-solid fa-handshake fa-lg"></i> welcome to our website.</b></h1>
+      <h1 class="text-3xl mb-2"><b class="uppercase"><i class="fa-solid fa-handshake fa-lg"></i>Welcome To Vaccine Management (COVID-19)</b></h1>
       <p class="first:uppercase first:tracking-widest mb-4 mt-5">
         <span class="text-7xl font-bold text-green-500 mr-3 float-left">W</span>e extend a warm and hearty welcome to you! At Covid-19, we are on a mission to provide you with valuable information and resources that empower you on your journey to health and wellness. Explore our platform to discover insights on vaccinations, stay informed about health practices, and join our community in fostering a safer and healthier world. Your well-being is our priority, and we invite you to navigate through our content, participate in discussions, and embark on a path to a healthier future together. Thank you for choosing Covid-19. Let's build a healthier world, one step at a time!
       </p>
@@ -64,12 +64,17 @@
 
   
   <div class="container mx-auto p-4 my-10">
-    {% include 'campaign/all_campaign_list.html' %}
+    <div class="text-center my-10">
+      <h1 class="text-3xl text-blue-900">All Campaign List</h1>
+    </div>
+    <div>
+      {% include 'campaign/all_campaign_list.html' %}
+    </div>
   </div>
 
 
   <!-- accordion start -->
-<div class=" container my-10">
+<div class="container my-10">
   <div class="accordion" id="accordionPanelsStayOpenExample">
     <div class="accordion-item">
       <h2 class="accordion-header" id="panelsStayOpen-headingOne">
